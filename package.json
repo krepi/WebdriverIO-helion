@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "e2e": "wdio wdio.conf.ts",
+    "e2e": "wdio wdio.conf.ts --suite e2e",
+    "debug": "wdio wdio.conf.ts --suite debug",
     "wdio": "wdio run ./wdio.conf.ts"
   },
   "author": "",

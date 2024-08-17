@@ -36,6 +36,15 @@ export const config: Options.Testrunner = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+
+    suites: {
+        debug:[
+            "./test/specs/e2e/Searchbar.ts"
+        ],
+        e2e: [
+            "./test/specs/e2e/Searchbar.ts"
+        ]
+    },
     //
     // ============
     // Capabilities
@@ -101,6 +110,7 @@ export const config: Options.Testrunner = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
+
     baseUrl: 'https://helion.pl',
     //
     // Default timeout for all waitFor* commands.
@@ -219,8 +229,9 @@ export const config: Options.Testrunner = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
+    beforeTest: function () {
+        browser.maximizeWindow();
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)

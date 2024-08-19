@@ -16,6 +16,7 @@ describe('E2E - Searchbar', async () => {
     it('Should type search value and verify  visibility of popup ', async ()=>{
         await SearchBarPage.typeSearchPhrase(searchPhrase);
         await SearchBarPage.suggestListVisibility();
+
     });
     it("Should click Show All button ", async ()=>{
         await SearchBarPage.clickShowAllButton();
@@ -26,5 +27,10 @@ describe('E2E - Searchbar', async () => {
         await expect(title).toBe(searcheResultTitle);
         // await SearchResultsPage.checkSearchedTitleValue(searcheResultTitle)
         await SearchResultsPage.checkNumberOfSuggestedBooks(25);
+    });
+    it("Should clear  input value", async ()=>{
+        await SearchBarPage.clearSearchInput();
+       const inputValue:string = await SearchBarPage.getInputValue();
+       await expect(inputValue).toBe("");
     })
 })

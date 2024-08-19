@@ -29,6 +29,16 @@ class SearchBarPage {
         await searchInput.waitForDisplayed();
         await searchInput.setValue(value);
     }
+    async clearSearchInput() {
+        const searchInput = await this.searchInput;
+        await searchInput.waitForDisplayed();
+        await searchInput.setValue('');
+    }
+    async getInputValue():Promise<string> {
+        const searchInput = await this.searchInput;
+         await searchInput.waitForDisplayed();
+         return await searchInput.getValue();
+    }
     async suggestListVisibility(){
         const suggestList: WebdriverIO.Element = await this.searchSuggestList;
         await suggestList.waitForDisplayed();
